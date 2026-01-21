@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Personal Website</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav>
+        <h2 class="logo">Aimwell</h2>
+        <button id="darkToggle">🌙</button>
+
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section id="home" class="hero">
+    <img src="profile.jpg" alt="Profile Photo" class="profile-img">
+    <h1>Hello, I'm Aimwell</h1>
+    <p>Aspiring Developer | Student | Tech Enthusiast</p>
+    <button onclick="sayHello()">Click Me</button>
+</section>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <p>
+            I am learning web development and programming.
+            This is my personal website built using HTML, CSS, and JavaScript.
+        </p>
+    </section>
+
+    <section id="skills">
+        <h2>My Skills</h2>
+        <ul class="skills-list">
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+            <li>Java (Beginner)</li>
+        </ul>
+    </section>
+
+    <section id="portfolio">
+    <h2>Projects</h2>
+    <div class="projects">
+        <div class="card">Personal Website</div>
+        <div class="card">Java Practice App</div>
+        <div class="card">Student Management System</div>
+    </div>
+</section>
+
+    <section id="contact">
+    <h2>Contact Me</h2>
+    <form class="contact-form">
+        <input type="text" placeholder="Aimwell D Tweh Nimley Jr" required>
+        <input type="email" placeholder="aimwellnimley@gmail.com" required>
+        <textarea placeholder="Bounce like a ball Aim like an arrow and be Sharp like a razor"></textarea>
+        <button type="submit">Send Message</button>
+    </form>
+</section>
+
+
+    <footer>
+        <p>© 2026 Aimwell. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
