@@ -52,13 +52,19 @@ document.getElementById("service-form").addEventListener("submit", function (e) 
     }
   );
 });
+
+// Make sure EmailJS is initialized
+(function () {
+  emailjs.init("kSXjwbBY0XgkSELjb");
+})();
+
 // Auto-fill service + scroll
 function selectService(serviceName) {
   document.getElementById("selected-service").value = serviceName;
   document.getElementById("offer").scrollIntoView({ behavior: "smooth" });
 }
 
-// Send Request Service form
+// Handle service request submission
 document.getElementById("service-form").addEventListener("submit", function (e) {
   e.preventDefault();
 
@@ -72,7 +78,7 @@ document.getElementById("service-form").addEventListener("submit", function (e) 
       document.getElementById("service-form").reset();
     },
     function (error) {
-      alert("❌ Failed to send request.");
+      alert("❌ Failed to send service request");
       console.error(error);
     }
   );
