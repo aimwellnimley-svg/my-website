@@ -98,18 +98,24 @@ document.getElementById("requestForm").addEventListener("submit", function (e) {
   };
 
   fetch("https://script.google.com/macros/s/AKfycbxeQ7n94yeAQlxlfPa8GwCXFi9xzpRGusOpkGTgHIZHf14d35W70hA-KWGHGMUYuMK4/exec", {
-    method: "POST",
-    body: JSON.stringify(data),
-    headers: {
-      "Content-Type": "application/json"
-    }
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify({
+    name: document.getElementById("name").value,
+    email: document.getElementById("email").value,
+    phone: document.getElementById("phone").value,
+    service: document.getElementById("service").value,
+    message: document.getElementById("message").value,
+    source: "request-service"
   })
-    .then(res => res.json())
-    .then(() => {
-      document.getElementById("status").innerText = "✅ Request sent successfully!";
-      document.getElementById("requestForm").reset();
-    })
-    .catch(() => {
-      document.getElementById("status").innerText = "❌ Failed to send request.";
-    });
+})
+.then(res => res.json())
+.then(data => {
+  alert("Request sent successfully!");
+})
+.catch(err => {
+  alert("Error sending request");
+  console.error(err);
 });
