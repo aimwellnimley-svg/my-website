@@ -1,122 +1,45 @@
-function sayHello() {
-    alert("Hello! Thanks for visiting my website 😊");
-}
+// ===============================
+// Google Sheet Form Submission
+// ===============================
+
 document.addEventListener("DOMContentLoaded", function () {
-    document.getElementById("darkToggle").onclick = function () {
-        document.body.classList.toggle("dark");
-    };
-});
 
-(function () {
-    emailjs.init("kSXjwbBY0XgkSELjb");
-})();
+  const requestForm = document.getElementById("requestForm");
 
-document.getElementById("contact-form").addEventListener("submit", function (e) {
+  if (!requestForm) {
+    console.error("Form not found");
+    return;
+  }
+
+  requestForm.addEventListener("submit", function (e) {
     e.preventDefault();
-
-    emailjs.sendForm(
-        "service_qcm79ai",
-        "template_qhog4hk",
-        this
-    ).then(
-        function () {
-            alert("✅ Message sent successfully!");
-            document.getElementById("contact-form").reset();
-        },
-        function (error) {
-            alert("❌ Failed to send message. Try again.");
-            console.error(error);
-        }
-    );
-});
-
-function selectService(serviceName) {
-    document.getElementById("selected-service").value = serviceName;
-}
-
-document.getElementById("service-form").addEventListener("submit", function (e) {
-    e.preventDefault();
-
-    emailjs.sendForm(
-        "service_qcm79ai",
-        "template_qhog4hk",
-        this
-    ).then(
-        function () {
-            alert("✅ Service request sent successfully!");
-            document.getElementById("service-form").reset();
-        },
-        function (error) {
-            alert("❌ Failed to send request.");
-            console.error(error);
-        }
-    );
-});
-
-// Make sure EmailJS is initialized
-(function () {
-    emailjs.init("kSXjwbBY0XgkSELjb");
-})();
-
-// Auto-fill service + scroll
-function selectService(serviceName) {
-    document.getElementById("selected-service").value = serviceName;
-    document.getElementById("offer").scrollIntoView({ behavior: "smooth" });
-}
-
-// Handle service request submission
-document.getElementById("service-form").addEventListener("submit", function (e) {
-    e.preventDefault();
-
-    emailjs.sendForm(
-        "service_qcm79ai",
-        "template_qhog4hk",
-        this
-    ).then(
-        function () {
-            alert("✅ Service request sent successfully!");
-            document.getElementById("service-form").reset();
-        },
-        function (error) {
-            alert("❌ Failed to send service request");
-            console.error(error);
-        }
-    );
-});
-document.getElementById("requestForm").addEventListener("submit", function (e) {
-    e.preventDefault();
-
-    const formData = new FormData(this);
 
     const data = {
-        name: formData.get("name"),
-        email: formData.get("email"),
-        phone: formData.get("phone"),
-        service: formData.get("service"),
-        message: formData.get("message"),
-        source: "service request"
+      name: document.getElementById("name").value,
+      email: document.getElementById("email").value,
+      phone: document.getElementById("phone").value,
+      service: document.getElementById("service").value,
+      message: document.getElementById("message").value,
+      source: "website"
     };
 
-   fetch("https://script.google.com/macros/s/AKfycbxeQ7n94yeAQlxlfPa8GwCXFi9xzpRGusOpkGTgHIZHf14d35W70hA-KWGHGMUYuMK4/exec", {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json"
-  },
-  body: JSON.stringify({
-    name: document.getElementById("name").value,
-    email: document.getElementById("email").value,
-    phone: document.getElementById("phone").value,
-    service: document.getElementById("service").value,
-    message: document.getElementById("message").value,
-    source: "request-service"
-  })
-})
-.then(res => res.json())
-.then(data => {
-  alert("Request sent successfully!");
-  console.log(data);
-})
-.catch(err => {
-  alert("Error sending request");
-  console.error(err);
+    fetch("https://script.google.com/macros/s/AKfycbxeQ7n94yeAQlxlfPa8GwCXFi9xzpRGusOpkGTgHIZHf14d35W70hA-KWGHGMUYuMK4/exec", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(data)
+    })
+    .then(res => res.json())
+    .then(result => {
+      alert("✅ Request sent successfully!");
+      requestForm.reset();
+      console.log(result);
+    })
+    .catch(err => {
+      alert("❌ Error sending request");
+      console.error(err);
+    });
+  });
+
 });
