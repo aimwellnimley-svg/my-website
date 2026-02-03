@@ -12,6 +12,19 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   requestForm.addEventListener("submit", function (e) {
+
+    // 🔒 SAFETY CHECK (prevents null.value crash)
+    if (
+        !document.getElementById("name") ||
+        !document.getElementById("email") ||
+        !document.getElementById("phone") ||
+        !document.getElementById("service") ||
+        !document.getElementById("message")
+    ) {
+        console.error("One or more request form fields not found");
+        return;
+    }
+
     e.preventDefault();
 
     const data = {
