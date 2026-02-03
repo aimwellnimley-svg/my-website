@@ -137,12 +137,13 @@
 
     <section id="contact">
     <h2>Contact Me</h2>
-    <form class="contact-form">
-        <input type="text" placeholder="Aimwell D Tweh Nimley Jr" required>
-        <input type="email" placeholder="aimwellnimley@gmail.com" required>
-        <textarea placeholder="Bounce like a ball Aim like an arrow and be Sharp like a razor"></textarea>
-        <button type="submit">Send Message</button>
-    </form>
+    <form id="contact-form">
+  <input type="text" name="name" placeholder="Your Name" required>
+  <input type="email" name="email" placeholder="Your Email" required>
+  <textarea name="message" placeholder="Your Message" required></textarea>
+  <button type="submit">Send Message</button>
+</form>
+
 </section>
 <a 
   href="https://wa.me/919175857397" 
@@ -163,6 +164,9 @@
   target="_blank">
   💬
 </a>
+
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script src="script.js"></script>
 
 </body>
 </html>

@@ -7,3 +7,25 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 });
 
+(function () {
+  emailjs.init("kSXjwbBY0XgkSELjb");
+})();
+
+document.getElementById("contact-form").addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  emailjs.sendForm(
+    "service_qcm79ai",
+    "template_qhog4hk",
+    this
+  ).then(
+    function () {
+      alert("✅ Message sent successfully!");
+      document.getElementById("contact-form").reset();
+    },
+    function (error) {
+      alert("❌ Failed to send message. Try again.");
+      console.error(error);
+    }
+  );
+});
