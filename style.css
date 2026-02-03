@@ -289,3 +289,6 @@ footer {
 .dark .service-box {
     background: #1f2937;
 }
+html {
+    scroll-behavior: smooth;
+}
