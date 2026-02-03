@@ -108,23 +108,21 @@
         Tell me what you need and I’ll get back to you.
     </p>
 
-    <form id="offer-form">
-        <input type="text" name="name" placeholder="Your Name" required>
-        <input type="email" name="email" placeholder="Your Email" required>
+    <section id="offer">
+  <h2>Request a Service</h2>
 
-        <select name="service" required>
-            <option value="">Select Service</option>
-            <option>Web Development</option>
-            <option>Thesis & Academic Writing</option>
-            <option>Resume / CV Creation</option>
-            <option>Other</option>
-        </select>
+  <form id="service-form">
+    <input type="hidden" name="service" id="selected-service">
 
-        <textarea name="details" placeholder="Describe your request..." required></textarea>
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Your Email" required>
 
-        <button type="submit">Submit Request</button>
-    </form>
+    <textarea name="message" placeholder="Describe what you need" required></textarea>
+
+    <button type="submit">Submit Request</button>
+  </form>
 </section>
+
 
     <section id="portfolio">
     <h2>Projects</h2>

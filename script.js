@@ -29,3 +29,26 @@ document.getElementById("contact-form").addEventListener("submit", function (e) 
     }
   );
 });
+
+function selectService(serviceName) {
+  document.getElementById("selected-service").value = serviceName;
+}
+
+document.getElementById("service-form").addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  emailjs.sendForm(
+    "service_qcm79ai",
+    "template_qhog4hk",
+    this
+  ).then(
+    function () {
+      alert("✅ Service request sent successfully!");
+      document.getElementById("service-form").reset();
+    },
+    function (error) {
+      alert("❌ Failed to send request.");
+      console.error(error);
+    }
+  );
+});
