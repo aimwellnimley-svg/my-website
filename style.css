@@ -230,3 +230,62 @@ footer {
     box-shadow: 0 8px 20px rgba(0,0,0,0.3);
     z-index: 1000;
 }
+#services {
+    text-align: center;
+}
+
+.services-intro {
+    max-width: 700px;
+    margin: 0 auto 40px;
+    font-size: 16px;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.service-box {
+    background: #f8fafc;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    text-align: left;
+    transition: transform 0.3s;
+}
+
+.service-box:hover {
+    transform: translateY(-8px);
+}
+
+.service-box h3 {
+    margin-bottom: 12px;
+    color: #2563eb;
+}
+
+.service-box ul {
+    margin: 15px 0;
+    padding-left: 18px;
+}
+
+.service-box ul li {
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.service-btn {
+    display: inline-block;
+    margin-top: 10px;
+    background: #2563eb;
+    color: white;
+    padding: 12px 22px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+/* Dark mode */
+.dark .service-box {
+    background: #1f2937;
+}
