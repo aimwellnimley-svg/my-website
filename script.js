@@ -97,7 +97,7 @@ document.getElementById("requestForm").addEventListener("submit", function (e) {
     source: "service request"
   };
 
-  fetch("https://script.google.com/u/0/home/projects/1AfuFMCGdVd4EZ242J25cl-UcMMEGym7NFffvRsEud9YKJTFzNL0LNR4B/edit", {
+  fetch("https://script.google.com/macros/s/AKfycbxeQ7n94yeAQlxlfPa8GwCXFi9xzpRGusOpkGTgHIZHf14d35W70hA-KWGHGMUYuMK4/exec", {
     method: "POST",
     body: JSON.stringify(data),
     headers: {
