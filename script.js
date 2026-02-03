@@ -33,6 +33,8 @@ if (!requestForm) {
 
     e.preventDefault();
 
+console.log("✅ Submit clicked");
+
     const data = {
       name: document.getElementById("name").value,
       email: document.getElementById("email").value,
