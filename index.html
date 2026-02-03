@@ -115,21 +115,26 @@
     <section id="request">
         <h2>Request a Service</h2>
 <form id="requestForm">
-    <input type="text" name="name" placeholder="Your Name" required>
-    <input type="email" name="email" placeholder="Your Email" required>
-    <input type="text" name="phone" placeholder="WhatsApp Number">
 
-    <select name="service" required>
-      <option value="">Select Service</option>
-      <option value="Web Development">Web Development</option>
-      <option value="Thesis Writing">Thesis Writing</option>
-      <option value="Resume / CV">Resume / CV</option>
-    </select>
+  <input type="text" id="name" name="name" placeholder="Your Name" required>
 
-    <textarea name="message" placeholder="Describe your request" required></textarea>
+  <input type="email" id="email" name="email" placeholder="Your Email" required>
 
-    <button type="submit">Submit Request</button>
-  </form>
+  <input type="text" id="phone" name="phone" placeholder="WhatsApp Number">
+
+  <select id="service" name="service" required>
+    <option value="">Select Service</option>
+    <option value="Web Development">Web Development</option>
+    <option value="Thesis Writing">Thesis Writing</option>
+    <option value="Resume / CV">Resume / CV</option>
+  </select>
+
+  <textarea id="message" name="message"
+    placeholder="Describe your request" required></textarea>
+
+  <button type="submit">Submit Request</button>
+</form>
+
 
   <p id="status"></p>
 </section>
