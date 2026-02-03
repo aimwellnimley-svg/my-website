@@ -83,3 +83,33 @@ document.getElementById("service-form").addEventListener("submit", function (e) 
     }
   );
 });
+document.getElementById("requestForm").addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  const formData = new FormData(this);
+
+  const data = {
+    name: formData.get("name"),
+    email: formData.get("email"),
+    phone: formData.get("phone"),
+    service: formData.get("service"),
+    message: formData.get("message"),
+    source: "service request"
+  };
+
+  fetch("https://script.google.com/u/0/home/projects/1AfuFMCGdVd4EZ242J25cl-UcMMEGym7NFffvRsEud9YKJTFzNL0LNR4B/edit", {
+    method: "POST",
+    body: JSON.stringify(data),
+    headers: {
+      "Content-Type": "application/json"
+    }
+  })
+    .then(res => res.json())
+    .then(() => {
+      document.getElementById("status").innerText = "✅ Request sent successfully!";
+      document.getElementById("requestForm").reset();
+    })
+    .catch(() => {
+      document.getElementById("status").innerText = "❌ Failed to send request.";
+    });
+});
