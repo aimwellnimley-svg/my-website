@@ -1,17 +1,23 @@
+console.log("✅ script.js loaded");
+
 // ===============================
 // Google Sheet Form Submission
 // ===============================
 
 document.addEventListener("DOMContentLoaded", function () {
+  console.log("📄 DOM fully loaded");
 
   const requestForm = document.getElementById("requestForm");
+console.log("📝 requestForm:", requestForm);
 
-  if (!requestForm) {
-    console.error("Form not found");
-    return;
-  }
+if (!requestForm) {
+  console.error("❌ Form not found");
+  return;
+}
+
 
   requestForm.addEventListener("submit", function (e) {
+  console.log("🚀 Submit handler fired");
 
     // 🔒 SAFETY CHECK (prevents null.value crash)
     if (
@@ -35,6 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
       message: document.getElementById("message").value,
       source: "website"
     };
+console.log("📦 Data being sent:", data);
 
     fetch("https://script.google.com/macros/s/AKfycbxeQ7n94yeAQlxlfPa8GwCXFi9xzpRGusOpkGTgHIZHf14d35W70hA-KWGHGMUYuMK4/exec", {
       method: "POST",
